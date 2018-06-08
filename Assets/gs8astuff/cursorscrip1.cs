@@ -15,11 +15,22 @@ public class cursorscrip1:MonoBehaviour
 
     /*-- movement vars/cam vars --*/
     Vector3 m_moveVec=new Vector3();
+    Vector3 t_moveVec=new Vector3();
     Vector3 m_posvec=new Vector3();
     float m_cursorspeed=7.6f;
 
     Vector3 m_camAngle=new Vector3(30,0,0);
-    float [,] m_camPositions=new float[4,3]{{1,1,225},{-1,1,135},{-1,-1,45},{1,-1,315}};
+    /*
+        for each camera position (4 positions):
+        0: multiplier for X position shift
+        1: multiplier for Z position shift
+        2: Y angle of camera
+        3: horizontal control cursor movement axis. 0 for X, 2 for z
+        4: vertical control cursor movement axis
+        5: horizontal control invert. 1 for normal, -1 for inverted
+        6: vertical control invert
+    */
+    int [,] m_camPositions=new int[4,7]{{1,1,225,0,2,-1,1},{-1,1,135,2,0,-1,-1},{-1,-1,45,0,2,1,-1},{1,-1,315,2,0,1,1}};
     int m_currentcamPosition=0;
 
     /*-- grid float vars, might deprecate later --*/
@@ -96,10 +107,10 @@ public class cursorscrip1:MonoBehaviour
     void updatePosition()
     {
         m_moveVec.Normalize();
-        m_moveVec.x=m_moveVec.x*m_cursorspeed*-1;
-        m_moveVec.z=m_moveVec.z*m_cursorspeed;
+        t_moveVec.x=m_moveVec[m_camPositions[m_currentcamPosition,3]]*m_cursorspeed*m_camPositions[m_currentcamPosition,5];
+        t_moveVec.z=m_moveVec[m_camPositions[m_currentcamPosition,4]]*m_cursorspeed*m_camPositions[m_currentcamPosition,6];
         // transform.Translate(m_moveVec,Space.World);
-        m_body.velocity=m_moveVec;
+        m_body.velocity=t_moveVec;
 
         m_posvec=transform.position;
         m_posvec.x+=5*m_camPositions[m_currentcamPosition,0];
