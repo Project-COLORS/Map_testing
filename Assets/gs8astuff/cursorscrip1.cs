@@ -65,6 +65,32 @@ public class cursorscrip1:MonoBehaviour
                 selectRequest();
             }
         }
+
+        if (Input.GetButtonDown("rotateleft"))
+        {
+            if (m_currentcamPosition>=3)
+            {
+                m_currentcamPosition=0;
+            }
+
+            else
+            {
+                m_currentcamPosition++;
+            }
+        }
+
+        else if (Input.GetButtonDown("rotateright"))
+        {
+            if (m_currentcamPosition<=0)
+            {
+                m_currentcamPosition=3;
+            }
+
+            else
+            {
+                m_currentcamPosition--;
+            }
+        }
     }
 
     void updatePosition()
