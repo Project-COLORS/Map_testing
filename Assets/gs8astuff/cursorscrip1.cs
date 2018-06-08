@@ -13,10 +13,14 @@ public class cursorscrip1:MonoBehaviour
 
     public tilecontrol m_tilecontrol;
 
-    /*-- movement vars --*/
+    /*-- movement vars/cam vars --*/
     Vector3 m_moveVec=new Vector3();
     Vector3 m_posvec=new Vector3();
     float m_cursorspeed=7.6f;
+
+    Vector3 m_camAngle=new Vector3(30,0,0);
+    float [,] m_camPositions=new float[4,3]{{1,1,225},{-1,1,135},{-1,-1,45},{1,-1,315}};
+    int m_currentcamPosition=0;
 
     /*-- grid float vars, might deprecate later --*/
     [NonSerialized]
@@ -72,10 +76,13 @@ public class cursorscrip1:MonoBehaviour
         m_body.velocity=m_moveVec;
 
         m_posvec=transform.position;
-        m_posvec.x+=5;
+        m_posvec.x+=5*m_camPositions[m_currentcamPosition,0];
         m_posvec.y+=4;
-        m_posvec.z+=5;
+        m_posvec.z+=5*m_camPositions[m_currentcamPosition,1];
 
+        m_camAngle.y=m_camPositions[m_currentcamPosition,2];
+
+        m_cam.transform.eulerAngles=m_camAngle;
         m_cam.transform.position=m_posvec;
     }
 
