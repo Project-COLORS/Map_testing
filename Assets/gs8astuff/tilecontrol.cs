@@ -38,6 +38,32 @@ public class tilecontrol:MonoBehaviour
                 zcoord++;
             }
         }
+
+        tile[] adjacents;
+        for (int x=0;x<m_gridsize;x++)
+        {
+            adjacents=new tile[4]{null,null,null,null};
+
+            if (x+m_gridDim[0]<m_gridsize)
+            {
+                adjacents[0]=m_tiles[x+m_gridDim[0]];
+            }
+
+            if (x+1<m_gridsize)
+            {
+                adjacents[1]=m_tiles[x+1];
+            }
+
+            if (x-m_gridDim[0]>=0)
+            {
+                adjacents[2]=m_tiles[x-m_gridDim[0]];
+            }
+
+            if (x-1>=0)
+            {
+                adjacents[3]=m_tiles[x-1];
+            }
+        }
     }
 
     //given x,z coords, return array index of associated tile, or
@@ -56,5 +82,10 @@ public class tilecontrol:MonoBehaviour
     float[] coordsToCentre(int x,int z)
     {
         return new float[2]{m_tileSize*x+m_initialTilePos[0],m_tileSize*z+m_initialTilePos[1]};
+    }
+
+    void tempHighlight()
+    {
+
     }
 }
