@@ -13,7 +13,7 @@ public class cursorscrip2:MonoBehaviour
     Vector3 m_moveVec=new Vector3();
     Vector3 t_moveVec=new Vector3();
     Vector3 m_posvec=new Vector3();
-    float m_cursorspeed=7.6f;
+    float m_cursorspeed=7.9f;
 
     Vector3 m_camAngle=new Vector3(30,0,0);
     /*  for each camera position (4 positions):
