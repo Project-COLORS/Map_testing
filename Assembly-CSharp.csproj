@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\cursor-camera\cursorscrip2.cs" />
      <Compile Include="Assets\old\gs8astuff\basechar.cs" />
      <Compile Include="Assets\old\gs8astuff\cursorscrip1.cs" />
      <Compile Include="Assets\old\gs8astuff\tile.cs" />
