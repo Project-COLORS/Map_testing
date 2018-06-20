@@ -3196,9 +3196,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_cam: {fileID: 806580051}
-  m_body: {fileID: 0}
+  m_body: {fileID: 855677948}
   m_gridDim: 0a0000000a000000
-  m_tileSize: 1.12
+  m_tileSize: 0.996
 --- !u!212 &855677950
 SpriteRenderer:
   m_ObjectHideFlags: 0
