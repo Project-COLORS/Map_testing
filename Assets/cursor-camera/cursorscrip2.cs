@@ -110,6 +110,7 @@ public class cursorscrip2:MonoBehaviour
         t_moveVec.x=m_moveVec[m_camPositions[m_currentcamPosition,3]]*m_cursorspeed*m_camPositions[m_currentcamPosition,5];
         t_moveVec.z=m_moveVec[m_camPositions[m_currentcamPosition,4]]*m_cursorspeed*m_camPositions[m_currentcamPosition,6];
         // transform.Translate(m_moveVec,Space.World);
+        t_moveVec=Quaternion.Euler(0,-45,0)*t_moveVec;
         m_body.velocity=t_moveVec;
 
         m_camPositionsCurrent[0]=Mathf.Lerp(m_camPositionsCurrent[0],5*m_camPositions[m_currentcamPosition,0],.1f);
