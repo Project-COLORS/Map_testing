@@ -49,6 +49,9 @@ public class cursorscrip2:MonoBehaviour
     bool m_selectActive=false;
     Action m_currentSelectCommand;
 
+    /*-- tgrid system --*/
+    public tgrid m_tgrid;
+
     void Start()
     {
         m_tileSizehalf=m_tileSize/2;
@@ -69,10 +72,12 @@ public class cursorscrip2:MonoBehaviour
 
         if (Input.GetButtonDown("selectkey"))
         {
-            if (m_selectActive)
-            {
-                selectRequest();
-            }
+            // if (m_selectActive)
+            // {
+            //     selectRequest();
+            // }
+
+            print(m_tgrid.m_tiles[m_pos[0],m_pos[1]].test);
         }
 
         if (Input.GetButtonDown("rotateleft"))
