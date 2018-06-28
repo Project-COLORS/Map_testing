@@ -78,6 +78,14 @@ public class cursorscrip2:MonoBehaviour
             // }
 
             print(m_tgrid.m_tiles[m_pos[0],m_pos[1]].test);
+
+            for (int x=0;x<4;x++)
+            {
+                if (m_tgrid.m_tiles[m_pos[0],m_pos[1]].m_neighbours[x]!=null)
+                {
+                    print("hey");
+                }
+            }
         }
 
         if (Input.GetButtonDown("rotateleft"))
