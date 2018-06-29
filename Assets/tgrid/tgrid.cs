@@ -13,6 +13,11 @@ public class ttile
 public class tgrid:MonoBehaviour
 {
     int[] m_gridDim=new int[2]{11,11}; //the dimensions of the map
+    float m_tileSize=0.996f;
+    [System.NonSerialized]
+    //initial centre position of realworld grid tile,
+    //obtained from the cursor which sets the initial pos
+    public Vector3 m_initialCentrepos;
 
     [System.NonSerialized]
     public ttile[,] m_tiles; //the tile objects
@@ -68,8 +73,15 @@ public class tgrid:MonoBehaviour
     }
 
     //place a char at the given coordinate
-    public void placeChar(int x,int y,pchar theChar)
+    public void placeChar(int x,int z,pchar theChar)
     {
-        m_tiles[x,y].m_occupyingChar=theChar;
+        m_tiles[x,z].m_occupyingChar=theChar;
+    }
+
+    //return a vector of realworld coordinates given int grid
+    //coordinates
+    public Vector3 coordsToRealCoords(int x,int z)
+    {
+        return new Vector3(x*m_tileSize+m_initialCentrepos[0],m_initialCentrepos[1],z*m_tileSize+m_initialCentrepos[2]);
     }
 }

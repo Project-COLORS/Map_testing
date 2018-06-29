@@ -56,6 +56,7 @@ public class cursorscrip2:MonoBehaviour
     {
         m_tileSizehalf=m_tileSize/2;
 
+        m_tgrid.m_initialCentrepos=new Vector3(transform.position[0],transform.position[1],transform.position[2]);
         m_centrepos.x=transform.position.x;
         m_centrepos.z=transform.position.z;
     }
