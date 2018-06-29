@@ -6,13 +6,16 @@ public class ttile
 {
     public int test=3;
     public ttile[] m_neighbours;
+
+    public pchar m_occupyingChar;
 }
 
 public class tgrid:MonoBehaviour
 {
-    int[] m_gridDim=new int[2]{11,11};
+    int[] m_gridDim=new int[2]{11,11}; //the dimensions of the map
+
     [System.NonSerialized]
-    public ttile[,] m_tiles;
+    public ttile[,] m_tiles; //the tile objects
 
     void Start()
     {
@@ -62,5 +65,11 @@ public class tgrid:MonoBehaviour
                 m_tiles[x,y].m_neighbours=neighbours;
             }
         }
+    }
+
+    //place a char at the given coordinate
+    public void placeChar(int x,int y,pchar theChar)
+    {
+        m_tiles[x,y].m_occupyingChar=theChar;
     }
 }
