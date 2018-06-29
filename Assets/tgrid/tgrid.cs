@@ -27,6 +27,7 @@ public class tgrid:MonoBehaviour
     void Start()
     {
         initialiseGrid();
+        initialiseChars();
     }
 
     void initialiseGrid()
@@ -90,9 +91,9 @@ public class tgrid:MonoBehaviour
     }
 
     //return a vector of realworld coordinates given int grid
-    //coordinates
-    public Vector3 coordsToRealCoords(int x,int z)
+    //coordinates. give it custom y coord to return
+    public Vector3 coordsToRealCoords(int x,int z,float y=.5f)
     {
-        return new Vector3(x*m_tileSize+m_initialCentrepos[0],m_initialCentrepos[1],z*m_tileSize+m_initialCentrepos[2]);
+        return new Vector3(x*m_tileSize+m_initialCentrepos[0],y,z*m_tileSize+m_initialCentrepos[2]);
     }
 }

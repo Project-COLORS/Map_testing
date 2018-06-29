@@ -7,7 +7,7 @@ public class pchar:MonoBehaviour
     GameObject m_cam; //the camera object
     tgrid m_tgrid; //the tgrid
 
-    int[] m_pos=new int[2]{3,1}; //current coordinate position of character
+    int[] m_pos=new int[2]{4,2}; //current coordinate position of character
 
     void Start()
     {
