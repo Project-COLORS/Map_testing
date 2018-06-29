@@ -13,13 +13,16 @@ public class pchar:MonoBehaviour
     {
         m_cam=GameObject.Find("maincam");
         m_tgrid=GameObject.Find("tgrid").GetComponent<tgrid>();
-
-        m_tgrid.placeChar(m_pos[0],m_pos[1],this);
-        transform.position=m_tgrid.coordsToRealCoords(m_pos[0],m_pos[1]);
     }
 
     void Update()
     {
         transform.forward=-m_cam.transform.forward;
+    }
+
+    public void initialiseChar()
+    {
+        m_tgrid.placeChar(m_pos[0],m_pos[1],this);
+        transform.position=m_tgrid.coordsToRealCoords(m_pos[0],m_pos[1]);
     }
 }

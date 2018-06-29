@@ -7,7 +7,7 @@ public class ttile
     public int test=3;
     public ttile[] m_neighbours;
 
-    public pchar m_occupyingChar;
+    public pchar m_occupyingChar; //gameobject with all characters as children
 }
 
 public class tgrid:MonoBehaviour
@@ -21,6 +21,8 @@ public class tgrid:MonoBehaviour
 
     [System.NonSerialized]
     public ttile[,] m_tiles; //the tile objects
+
+    public Transform m_characters;
 
     void Start()
     {
@@ -69,6 +71,15 @@ public class tgrid:MonoBehaviour
 
                 m_tiles[x,y].m_neighbours=neighbours;
             }
+        }
+    }
+
+    void initialiseChars()
+    {
+        pchar[] pchars=m_characters.GetComponentsInChildren<pchar>();
+        for (var x=0;x<pchars.Length;x++)
+        {
+            pchars[x].initialiseChar();
         }
     }
 

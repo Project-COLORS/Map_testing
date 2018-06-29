@@ -87,6 +87,9 @@ public class cursorscrip2:MonoBehaviour
                     print("hey");
                 }
             }
+
+            Vector3 realpos=m_tgrid.coordsToRealCoords(m_pos[0],m_pos[1]);
+            print(string.Format("real: {0},{1}",realpos[0],realpos[2]));
         }
 
         if (Input.GetButtonDown("rotateleft"))
