@@ -51,16 +51,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\cursor-camera\cursorscrip2.cs" />
-     <Compile Include="Assets\old\gs8astuff\basechar.cs" />
-     <Compile Include="Assets\old\gs8astuff\cursorscrip1.cs" />
-     <Compile Include="Assets\old\gs8astuff\tile.cs" />
-     <Compile Include="Assets\old\gs8astuff\tilecontrol.cs" />
-     <Compile Include="Assets\pchar\pchar.cs" />
+     <Compile Include="Assets\kstuff\cursor-camera\cursorscrip2.cs" />
+     <Compile Include="Assets\kstuff\old\gs8astuff\basechar.cs" />
+     <Compile Include="Assets\kstuff\old\gs8astuff\cursorscrip1.cs" />
+     <Compile Include="Assets\kstuff\old\gs8astuff\tile.cs" />
+     <Compile Include="Assets\kstuff\old\gs8astuff\tilecontrol.cs" />
+     <Compile Include="Assets\kstuff\pchar\pchar.cs" />
+     <Compile Include="Assets\kstuff\tgrid\tgrid.cs" />
      <Compile Include="Assets\Scripts\Stats\CharacterStat.cs" />
      <Compile Include="Assets\Scripts\Stats\StatMod.cs" />
      <Compile Include="Assets\Scripts\Stats\StatModType.cs" />
-     <Compile Include="Assets\tgrid\tgrid.cs" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>C:/Users/khang/Desktop/geo9/Map_testing/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
