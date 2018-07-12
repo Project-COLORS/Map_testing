@@ -10,8 +10,10 @@ public class GameTile : MonoBehaviour
 
     private void Start()
     {
-        Row = (int) transform.position.x;
-        Col = (int) transform.position.z;
+        Row = (int) (Mathf.Round(transform.position.x/0.996f));
+        Col = (int) (Mathf.Round(transform.position.z/0.996f));
+
+        print(string.Format("{0},{1}",Mathf.Round(transform.position.x/0.996f),Mathf.Round(transform.position.z/0.996f)));
 
         Properties.OnCurrentColorChange += onTileColorChange;
     }

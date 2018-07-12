@@ -11,10 +11,11 @@ public class GameGrid : MonoBehaviour
 
     private void Start()
     {
-        var retrievedTiles = BoundObject.GetComponentsInChildren<GameTile>();
+        GameTile[] retrievedTiles = BoundObject.GetComponentsInChildren<GameTile>();
 
         int xdim=retrievedTiles.Max(tile => tile.Row)-retrievedTiles.Min(tile => tile.Row)+1;
         int zdim=retrievedTiles.Max(tile => tile.Col)-retrievedTiles.Min(tile => tile.Col)+1;
+
         _tiles = new GameTile[xdim,zdim];
 
         print(xdim);
