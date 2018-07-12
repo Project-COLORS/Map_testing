@@ -41,7 +41,10 @@ public class GameGrid : MonoBehaviour
 
             _tiles[currentCoordx,currentCoordz]=retrievedTiles[x];
         }
+    }
 
+    void gridCoverTest(int xdim,int zdim)
+    {
         string res="";
         for (int x=0;x<xdim;x++)
         {
