@@ -20,4 +20,10 @@ public class pchar:MonoBehaviour
         //can be moved out later
         transform.forward=-m_cam.transform.forward;
     }
+
+    //execute character place
+    public void setLocation()
+    {
+        m_gameGrid.setCharacter(m_pos[0],m_pos[1],this);
+    }
 }

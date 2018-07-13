@@ -90,7 +90,7 @@ public class GameGrid : MonoBehaviour
 
         for (var x=0;x<pchars.Length;x++)
         {
-            setCharacter(pchars[x].m_pos[0],pchars[x].m_pos[1],pchars[x]);
+            pchars[x].setLocation();
         }
     }
 }
