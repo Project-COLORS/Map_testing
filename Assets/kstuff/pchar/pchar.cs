@@ -5,12 +5,14 @@ using UnityEngine;
 public class pchar:MonoBehaviour
 {
     GameObject m_cam; //the camera object
+    GameGrid m_gameGrid;
 
-    int[] m_pos=new int[2]{4,2}; //current coordinate position of character
+    public int[] m_pos=new int[2]{4,2}; //current coordinate position of character
 
     void Start()
     {
         m_cam=GameObject.Find("maincam");
+        m_gameGrid=GameObject.Find("grid").GetComponent<GameGrid>();
     }
 
     void Update()
