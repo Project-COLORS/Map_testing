@@ -17,6 +17,7 @@ public class pchar:MonoBehaviour
 
     void Update()
     {
+        //can be moved out later
         transform.forward=-m_cam.transform.forward;
     }
 
