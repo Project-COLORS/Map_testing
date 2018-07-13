@@ -49,14 +49,11 @@ public class cursorscrip2:MonoBehaviour
     bool m_selectActive=false;
     Action m_currentSelectCommand;
 
-    /*-- tgrid system --*/
-    public tgrid m_tgrid;
 
     void Start()
     {
         m_tileSizehalf=m_tileSize/2;
 
-        m_tgrid.m_initialCentrepos=new Vector3(transform.position[0],transform.position[1],transform.position[2]);
         m_centrepos.x=transform.position.x;
         m_centrepos.z=transform.position.z;
     }
@@ -73,23 +70,7 @@ public class cursorscrip2:MonoBehaviour
 
         if (Input.GetButtonDown("selectkey"))
         {
-            // if (m_selectActive)
-            // {
-            //     selectRequest();
-            // }
 
-            print(m_tgrid.m_tiles[m_pos[0],m_pos[1]].test);
-
-            for (int x=0;x<4;x++)
-            {
-                if (m_tgrid.m_tiles[m_pos[0],m_pos[1]].m_neighbours[x]!=null)
-                {
-                    print("hey");
-                }
-            }
-
-            Vector3 realpos=m_tgrid.coordsToRealCoords(m_pos[0],m_pos[1]);
-            print(string.Format("real: {0},{1}",realpos[0],realpos[2]));
         }
 
         if (Input.GetButtonDown("rotateleft"))

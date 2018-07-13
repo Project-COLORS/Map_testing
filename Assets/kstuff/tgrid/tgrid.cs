@@ -27,7 +27,7 @@ public class tgrid:MonoBehaviour
     void Start()
     {
         initialiseGrid();
-        initialiseChars();
+        // initialiseChars();
     }
 
     void initialiseGrid()
@@ -75,14 +75,14 @@ public class tgrid:MonoBehaviour
         }
     }
 
-    void initialiseChars()
-    {
-        pchar[] pchars=m_characters.GetComponentsInChildren<pchar>();
-        for (var x=0;x<pchars.Length;x++)
-        {
-            pchars[x].initialiseChar();
-        }
-    }
+    // void initialiseChars()
+    // {
+    //     pchar[] pchars=m_characters.GetComponentsInChildren<pchar>();
+    //     for (var x=0;x<pchars.Length;x++)
+    //     {
+    //         pchars[x].initialiseChar();
+    //     }
+    // }
 
     //place a char at the given coordinate
     public void placeChar(int x,int z,pchar theChar)

@@ -8,6 +8,8 @@ public class GameTile : MonoBehaviour
 
     private Material _material;
 
+    public pchar occupyChar;
+
     private void Start()
     {
         Row = (int) (Mathf.Round(transform.position.x));
