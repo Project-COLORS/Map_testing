@@ -80,10 +80,16 @@ public class cursorscrip2:MonoBehaviour
         if (Input.GetButtonDown("selectkey"))
         {
             _grid.clearHighlightEffects();
-            _grid.lineQuery(m_pos[0],m_pos[1],1,1,(tile)=>{
+
+            Func<GameTile,bool> callback=(tile)=>{
                 _grid.highlightEffect(tile);
                 return true;
-            });
+            };
+
+            _grid.lineQuery(m_pos[0],m_pos[1],1,1,callback);
+            _grid.lineQuery(m_pos[0],m_pos[1],1,-1,callback);
+            _grid.lineQuery(m_pos[0],m_pos[1],0,1,callback);
+            _grid.lineQuery(m_pos[0],m_pos[1],0,-1,callback);
         }
 
         if (Input.GetButtonDown("rotateleft"))
