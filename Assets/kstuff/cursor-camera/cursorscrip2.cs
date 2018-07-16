@@ -79,8 +79,8 @@ public class cursorscrip2:MonoBehaviour
 
         if (Input.GetButtonDown("selectkey"))
         {
-            _grid.lineQuery(0,0,0,1,(tile)=>{
-                tile.tileTest();
+            _grid.lineQuery(m_pos[0],m_pos[1],1,1,(tile)=>{
+                _grid.highlightEffect(tile);
                 return true;
             });
         }

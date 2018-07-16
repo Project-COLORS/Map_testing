@@ -10,6 +10,7 @@ public class GameGrid : MonoBehaviour
     private GameTile[,] _tiles;
 
     public Transform _hoverEffectObject;
+    public GameObject _highlightEffectObj;
 
     int[] _gridDimensions;
 
@@ -100,6 +101,7 @@ public class GameGrid : MonoBehaviour
         }
     }
 
+    //return a game tile at a position, null if out of bounds
     public GameTile getTile(int x,int z)
     {
         if (x<0 || z<0 || x>=_gridDimensions[0] || z>=_gridDimensions[1])
@@ -120,6 +122,14 @@ public class GameGrid : MonoBehaviour
 
         _hoverEffectObject.transform.position=new Vector3(_tiles[x,z].transform.position[0],_tiles[x,z].transform.position[1]+.1f,
             _tiles[x,z].transform.position[2]);
+    }
+
+    //given a tile place a highlight effect on it
+    public void highlightEffect(GameTile tile)
+    {
+        // Instantiate(_hoverEffectObject,tile.transform.position,Quaternion.Euler(-90,0,0));
+        Vector3 p=tile.transform.position;
+        Instantiate(_hoverEffectObject,new Vector3(p[0],p[1]+.1f,p[2]),Quaternion.Euler(90,0,0));
     }
 
     //given a start coordinate and some options, perform the callback on tiles in a straight line
