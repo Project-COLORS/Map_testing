@@ -79,7 +79,7 @@ public class cursorscrip2:MonoBehaviour
 
         if (Input.GetButtonDown("selectkey"))
         {
-            _grid.hoverEffect(m_pos[0],m_pos[1]);
+
         }
 
         if (Input.GetButtonDown("rotateleft"))
@@ -154,6 +154,7 @@ public class cursorscrip2:MonoBehaviour
             }
 
             print(String.Format("{0},{1}",m_pos[0],m_pos[1]));
+            _grid.hoverEffect(m_pos[0],m_pos[1]);
         }
 
         diff=transform.position.z-m_centrepos.z;
@@ -172,6 +173,7 @@ public class cursorscrip2:MonoBehaviour
             }
 
             print(String.Format("{0},{1}",m_pos[0],m_pos[1]));
+            _grid.hoverEffect(m_pos[0],m_pos[1]);
         }
     }
 

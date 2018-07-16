@@ -85,6 +85,7 @@ public class GameGrid : MonoBehaviour
         character.transform.position=new Vector3(_tiles[xpos,zpos].transform.position[0],character.transform.position[1],_tiles[xpos,zpos].transform.position[2]);
     }
 
+    //go through character array and place them
     void initialiseChars()
     {
         pchar[] pchars=GameObject.Find("chars").GetComponentsInChildren<pchar>();
@@ -100,7 +101,7 @@ public class GameGrid : MonoBehaviour
         return _tiles[x,z];
     }
 
-
+    //calls the hover effect over to the specified tile
     public void hoverEffect(int x,int z)
     {
         _hoverEffectObject.transform.position=new Vector3(_tiles[x,z].transform.position[0],_tiles[x,z].transform.position[1]+.1f,
