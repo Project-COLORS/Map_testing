@@ -1735,7 +1735,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4443181985695656, guid: 58542f842b337b14881c58ec016df8db, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -2.98
+      value: -3.72
       objectReference: {fileID: 0}
     - target: {fileID: 4443181985695656, guid: 58542f842b337b14881c58ec016df8db, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1743,7 +1743,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4443181985695656, guid: 58542f842b337b14881c58ec016df8db, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -6.86
+      value: -9.72
       objectReference: {fileID: 0}
     - target: {fileID: 4443181985695656, guid: 58542f842b337b14881c58ec016df8db, type: 2}
       propertyPath: m_LocalRotation.x
@@ -6030,7 +6030,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4443181985695656, guid: 58542f842b337b14881c58ec016df8db, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.13
+      value: -0.4
       objectReference: {fileID: 0}
     - target: {fileID: 4443181985695656, guid: 58542f842b337b14881c58ec016df8db, type: 2}
       propertyPath: m_LocalPosition.y
@@ -6038,7 +6038,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4443181985695656, guid: 58542f842b337b14881c58ec016df8db, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -6.86
+      value: -9.74
       objectReference: {fileID: 0}
     - target: {fileID: 4443181985695656, guid: 58542f842b337b14881c58ec016df8db, type: 2}
       propertyPath: m_LocalRotation.x
@@ -7334,6 +7334,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BoundObject: {fileID: 1326517576}
   _hoverEffectObject: {fileID: 1493952808}
+  _highlightEffectObj: {fileID: 1907085242942456, guid: 393829ee0c15f9b4283ac49bb67617d1,
+    type: 2}
 --- !u!1 &1328423355
 GameObject:
   m_ObjectHideFlags: 0
@@ -9162,7 +9164,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1672451487
 MonoBehaviour:
   m_ObjectHideFlags: 0
