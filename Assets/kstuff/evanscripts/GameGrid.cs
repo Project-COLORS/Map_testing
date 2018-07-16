@@ -11,6 +11,8 @@ public class GameGrid : MonoBehaviour
 
     public Transform _hoverEffectObject;
 
+    int[] _gridDimensions;
+
     private void Start()
     {
         GameTile[] retrievedTiles = BoundObject.GetComponentsInChildren<GameTile>();
@@ -24,6 +26,8 @@ public class GameGrid : MonoBehaviour
         //manually confirm that this is correct (cross check with physical map)
         int xdim=retrievedTiles.Max(tile => tile.Row)-xmin+1;
         int zdim=retrievedTiles.Max(tile => tile.Col)-zmin+1;
+
+        _gridDimensions=new int[2]{xdim,zdim}; //maybe eventually remove xdim/zdim and just use this
         Debug.LogFormat("tile array size: [{0},{1}]",xdim,zdim);
 
         _tiles = new GameTile[xdim,zdim];
@@ -98,6 +102,11 @@ public class GameGrid : MonoBehaviour
 
     public GameTile getTile(int x,int z)
     {
+        if (x<0 || z<0 || x>=_gridDimensions[0] || z>=_gridDimensions[1])
+        {
+            return null;
+        }
+
         return _tiles[x,z];
     }
 
@@ -106,5 +115,43 @@ public class GameGrid : MonoBehaviour
     {
         _hoverEffectObject.transform.position=new Vector3(_tiles[x,z].transform.position[0],_tiles[x,z].transform.position[1]+.1f,
             _tiles[x,z].transform.position[2]);
+    }
+
+    //given a start coordinate and some options, perform the callback on tiles in a straight line
+    //until out of bounds or the callback says to stop (return false)
+    //options:
+    //xpos: start X coordinate
+    //zpos: start Z coordinate
+    //directionXZ: go in X direction or Z direction (0 for X direction, 1 for Z)
+    //lineSpacing: spacing of line. 1 is every tile, 2 is every other tile, ect.
+    //bool callback(GameTile): performed on every tile. return FALSE to end the query
+    public void lineQuery(int xpos,int zpos,int directionXZ,int lineSpacing,System.Func<GameTile,bool> callback)
+    {
+        int xinc=1;
+        int zinc=0;
+
+        if (directionXZ>0)
+        {
+            xinc=0;
+            zinc=1;
+        }
+
+        xinc*=lineSpacing;
+        zinc*=lineSpacing;
+
+        GameTile currentTile;
+
+        while (true)
+        {
+            xpos+=xinc;
+            zpos+=zinc;
+
+            currentTile=getTile(xpos,zpos);
+
+            if (!currentTile || !callback(currentTile))
+            {
+                return;
+            }
+        }
     }
 }

@@ -24,4 +24,9 @@ public class GameTile : MonoBehaviour
     {
         GetComponent<Renderer>().material = MaterialCache.getTileMaterial(changeData.NewColor);
     }
+
+    public void tileTest()
+    {
+        Debug.LogFormat("hey from {0},{1}",Row,Col);
+    }
 }

@@ -79,7 +79,10 @@ public class cursorscrip2:MonoBehaviour
 
         if (Input.GetButtonDown("selectkey"))
         {
-
+            _grid.lineQuery(0,0,0,0,(tile)=>{
+                tile.tileTest();
+                return true;
+            });
         }
 
         if (Input.GetButtonDown("rotateleft"))
