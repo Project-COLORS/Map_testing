@@ -51,6 +51,9 @@ public class cursorscrip2:MonoBehaviour
 
     bool _cursorDisabled=false;
 
+    /*-- new grid --*/
+    public GameGrid _grid;
+
     void Start()
     {
         m_tileSizehalf=m_tileSize/2;
@@ -76,7 +79,7 @@ public class cursorscrip2:MonoBehaviour
 
         if (Input.GetButtonDown("selectkey"))
         {
-            _cursorDisabled=true;
+            _grid.hoverEffect(m_pos[0],m_pos[1]);
         }
 
         if (Input.GetButtonDown("rotateleft"))

@@ -9,6 +9,8 @@ public class GameGrid : MonoBehaviour
 
     private GameTile[,] _tiles;
 
+    public Transform _hoverEffectObject;
+
     private void Start()
     {
         GameTile[] retrievedTiles = BoundObject.GetComponentsInChildren<GameTile>();
@@ -91,5 +93,17 @@ public class GameGrid : MonoBehaviour
         {
             pchars[x].setLocation();
         }
+    }
+
+    public GameTile getTile(int x,int z)
+    {
+        return _tiles[x,z];
+    }
+
+
+    public void hoverEffect(int x,int z)
+    {
+        _hoverEffectObject.transform.position=new Vector3(_tiles[x,z].transform.position[0],_tiles[x,z].transform.position[1]+.1f,
+            _tiles[x,z].transform.position[2]);
     }
 }
