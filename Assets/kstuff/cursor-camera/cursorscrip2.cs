@@ -79,7 +79,7 @@ public class cursorscrip2:MonoBehaviour
 
         if (Input.GetButtonDown("selectkey"))
         {
-            _grid.lineQuery(0,0,0,0,(tile)=>{
+            _grid.lineQuery(0,0,0,1,(tile)=>{
                 tile.tileTest();
                 return true;
             });

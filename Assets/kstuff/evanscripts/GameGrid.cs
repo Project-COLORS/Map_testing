@@ -113,6 +113,11 @@ public class GameGrid : MonoBehaviour
     //calls the hover effect over to the specified tile
     public void hoverEffect(int x,int z)
     {
+        if (!getTile(x,z))
+        {
+            return;
+        }
+
         _hoverEffectObject.transform.position=new Vector3(_tiles[x,z].transform.position[0],_tiles[x,z].transform.position[1]+.1f,
             _tiles[x,z].transform.position[2]);
     }
@@ -123,10 +128,15 @@ public class GameGrid : MonoBehaviour
     //xpos: start X coordinate
     //zpos: start Z coordinate
     //directionXZ: go in X direction or Z direction (0 for X direction, 1 for Z)
-    //lineSpacing: spacing of line. 1 is every tile, 2 is every other tile, ect.
+    //lineSpacing: spacing of line. 1 is every tile, 2 is every other tile, ect. Can be negative (to go backwards).
     //bool callback(GameTile): performed on every tile. return FALSE to end the query
     public void lineQuery(int xpos,int zpos,int directionXZ,int lineSpacing,System.Func<GameTile,bool> callback)
     {
+        if (lineSpacing==0)
+        {
+            return;
+        }
+
         int xinc=1;
         int zinc=0;
 
