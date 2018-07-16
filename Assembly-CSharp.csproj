@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\kstuff\charui\testui.cs" />
      <Compile Include="Assets\kstuff\cursor-camera\cursorscrip2.cs" />
      <Compile Include="Assets\kstuff\evanscripts\GameGrid.cs" />
      <Compile Include="Assets\kstuff\evanscripts\GameTile.cs" />

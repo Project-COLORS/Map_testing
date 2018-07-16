@@ -80,8 +80,7 @@ public class GameGrid : MonoBehaviour
     public void setCharacter(int xpos,int zpos,pchar character)
     {
         _tiles[xpos,zpos].occupyChar=character;
-        Vector3 charposition=new Vector3(_tiles[xpos,zpos].transform.position[0],character.transform.position[1],_tiles[xpos,zpos].transform.position[2]);
-        character.transform.position=charposition;
+        character.transform.position=new Vector3(_tiles[xpos,zpos].transform.position[0],character.transform.position[1],_tiles[xpos,zpos].transform.position[2]);
     }
 
     void initialiseChars()

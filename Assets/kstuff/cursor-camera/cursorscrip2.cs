@@ -49,6 +49,7 @@ public class cursorscrip2:MonoBehaviour
     bool m_selectActive=false;
     Action m_currentSelectCommand;
 
+    bool _cursorDisabled=false;
 
     void Start()
     {
@@ -65,12 +66,17 @@ public class cursorscrip2:MonoBehaviour
         m_moveVec.x=Input.GetAxisRaw("Vertical");
         m_moveVec.z=Input.GetAxisRaw("Horizontal");
 
+        if (_cursorDisabled)
+        {
+            return;
+        }
+
         updatePosition();
         calcPos();
 
         if (Input.GetButtonDown("selectkey"))
         {
-
+            _cursorDisabled=true;
         }
 
         if (Input.GetButtonDown("rotateleft"))
