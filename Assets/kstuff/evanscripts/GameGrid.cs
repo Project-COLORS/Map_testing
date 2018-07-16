@@ -14,6 +14,8 @@ public class GameGrid : MonoBehaviour
 
     int[] _gridDimensions;
 
+    Stack<Transform> _highlightObjects=new Stack<Transform>();
+
     private void Start()
     {
         GameTile[] retrievedTiles = BoundObject.GetComponentsInChildren<GameTile>();
@@ -129,7 +131,17 @@ public class GameGrid : MonoBehaviour
     {
         // Instantiate(_hoverEffectObject,tile.transform.position,Quaternion.Euler(-90,0,0));
         Vector3 p=tile.transform.position;
-        Instantiate(_hoverEffectObject,new Vector3(p[0],p[1]+.1f,p[2]),Quaternion.Euler(90,0,0));
+        _highlightObjects.Push(Instantiate(_hoverEffectObject,new Vector3(p[0],p[1]+.1f,p[2]),Quaternion.Euler(90,0,0)));
+    }
+
+    //clear all highlight effects
+    //should change later to set the tiles to not selectable?
+    public void clearHighlightEffects()
+    {
+        while (_highlightObjects.Count>0)
+        {
+            Destroy(_highlightObjects.Pop().gameObject);
+        }
     }
 
     //given a start coordinate and some options, perform the callback on tiles in a straight line
