@@ -86,10 +86,12 @@ public class cursorscrip2:MonoBehaviour
                 return true;
             };
 
-            _grid.lineQuery(m_pos[0],m_pos[1],1,1,callback);
-            _grid.lineQuery(m_pos[0],m_pos[1],1,-1,callback);
-            _grid.lineQuery(m_pos[0],m_pos[1],0,1,callback);
-            _grid.lineQuery(m_pos[0],m_pos[1],0,-1,callback);
+            // _grid.lineQuery(m_pos[0],m_pos[1],1,1,callback);
+            // _grid.lineQuery(m_pos[0],m_pos[1],1,-1,callback);
+            // _grid.lineQuery(m_pos[0],m_pos[1],0,1,callback);
+            // _grid.lineQuery(m_pos[0],m_pos[1],0,-1,callback);
+
+            _grid.rangeQuery(m_pos[0],m_pos[1],2,0,callback);
         }
 
         if (Input.GetButtonDown("rotateleft"))

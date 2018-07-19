@@ -154,7 +154,7 @@ public class GameGrid : MonoBehaviour
     //bool callback(GameTile): performed on every tile. return FALSE to end the query
     public void lineQuery(int xpos,int zpos,int directionXZ,int lineSpacing,System.Func<GameTile,bool> callback)
     {
-        if (lineSpacing==0)
+        if (lineSpacing<=0)
         {
             return;
         }
@@ -183,6 +183,30 @@ public class GameGrid : MonoBehaviour
             if (!currentTile || !callback(currentTile))
             {
                 return;
+            }
+        }
+    }
+
+    //select tiles in a diamond range
+    //xpos,zpos: starting coordinates
+    //range: range of diamond selection
+    //box: include diagonals
+    //bool callback(GameTile): callback to perform on each tile. return FALSE to end query early
+    public void rangeQuery(int xpos,int zpos,int range,int box,System.Func<GameTile,bool> callback)
+    {
+        if (range<=0)
+        {
+            return;
+        }
+
+        for (int x=(-range);x<=range;x++)
+        {
+            for (int y=(-range);y<=range;y++)
+            {
+                if (Mathf.Abs(x)+Mathf.Abs(y)<=range && getTile(xpos+x,zpos+y) && !callback(_tiles[xpos+x,zpos+y]))
+                {
+                    return;
+                }
             }
         }
     }
