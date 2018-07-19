@@ -32,4 +32,11 @@ public class GameTile : MonoBehaviour
     {
         Debug.LogFormat("hey from {0},{1}",Row,Col);
     }
+
+    //shift row/col value to be non negative.
+    public void offsetRowCol(int offsetx,int offsetz)
+    {
+        Row-=offsetx;
+        Col-=offsetz;
+    }
 }

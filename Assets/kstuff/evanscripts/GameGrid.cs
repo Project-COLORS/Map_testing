@@ -44,6 +44,7 @@ public class GameGrid : MonoBehaviour
             //offset the coordinate to 0 (so it is possible for tiles to have negative x/z values)
             currentCoordx=retrievedTiles[x].Row-xmin;
             currentCoordz=retrievedTiles[x].Col-zmin;
+            retrievedTiles[x].offsetRowCol(xmin,zmin);
 
             //detect tiles with identical coordinates (round error occured)
             //if the dimensions calculated earlier are correct and there are no duplicate coordinates,

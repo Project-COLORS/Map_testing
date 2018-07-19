@@ -49,6 +49,8 @@ public class pchar:MonoBehaviour
         _cursor.queueCursorCommand((GameTile tile)=>{
             Debug.LogFormat("moving to {0},{1}",tile.Row,tile.Col);
 
+            m_gameGrid.setCharacter(tile.Row,tile.Col,this);
+
             m_gameGrid.clearHighlightEffects();
         });
     }
