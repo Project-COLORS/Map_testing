@@ -45,10 +45,6 @@ public class cursorscrip2:MonoBehaviour
     public float m_tileSize=1.12f;
     float m_tileSizehalf;
 
-    /*-- selection system --*/
-    bool m_selectActive=false;
-    Action m_currentSelectCommand;
-
     bool _cursorDisabled=false;
 
     /*-- new grid --*/
@@ -187,31 +183,6 @@ public class cursorscrip2:MonoBehaviour
             print(String.Format("{0},{1}",m_pos[0],m_pos[1]));
             _grid.hoverEffect(m_pos[0],m_pos[1]);
         }
-    }
-
-    //request the cursor go into select mode. give it the function that
-    //will be executed on valid selection.
-    public void enterSelectMode(Action command)
-    {
-        m_selectActive=true;
-        m_currentSelectCommand=command;
-    }
-
-    //attempt to perform the current queued select command, after doing checks
-    void selectRequest()
-    {
-        //once tile system is implemented, do checks to see if
-        //the tile is actually selectable before activating the callback
-
-        int tileindex=coordsToIndex(m_pos[0],m_pos[1]);
-        if (tileindex<0)
-        {
-            return;
-        }
-
-        m_currentSelectCommand();
-        m_currentSelectCommand=null;
-        m_selectActive=false;
     }
 
     //move this to grid control object later
