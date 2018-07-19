@@ -46,8 +46,9 @@ public class pchar:MonoBehaviour
 
         m_gameGrid.rangeQuery(m_pos[0],m_pos[1],2,0,callback);
 
-        _cursor.queueCursorCommand(()=>{
-            print("hey");
+        _cursor.queueCursorCommand((GameTile tile)=>{
+            Debug.LogFormat("moving to {0},{1}",tile.Row,tile.Col);
+
             m_gameGrid.clearHighlightEffects();
         });
     }

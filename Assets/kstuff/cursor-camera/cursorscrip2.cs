@@ -47,7 +47,7 @@ public class cursorscrip2:MonoBehaviour
 
     /*-- cursor command --*/
     bool _commandQueued=false;
-    System.Action _currentCommand;
+    System.Action<GameTile> _currentCommand;
 
     bool _cursorDisabled=false;
 
@@ -85,7 +85,7 @@ public class cursorscrip2:MonoBehaviour
 
                 if (clicktile && clicktile.selectable)
                 {
-                    _currentCommand();
+                    _currentCommand(clicktile);
                     _commandQueued=false;
                 }
             }
@@ -197,7 +197,13 @@ public class cursorscrip2:MonoBehaviour
         return z*m_gridDim[0]+x;
     }
 
-    public void queueCursorCommand(System.Action callback)
+    //set the cursor to execute the given callback upon clicking on
+    //any tile that is marked as selected. before using this function,
+    //whatever function calls this function should take action to actually
+    //mark tiles as selected. executing the command DOES NOT unmark tiles
+    //from being selected. that is up to the callback.
+    //the callback is given the clicked on tile.
+    public void queueCursorCommand(System.Action<GameTile> callback)
     {
         _commandQueued=true;
         _currentCommand=callback;
