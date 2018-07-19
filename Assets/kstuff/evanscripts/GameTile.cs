@@ -10,6 +10,9 @@ public class GameTile : MonoBehaviour
 
     public pchar occupyChar;
 
+    [System.NonSerialized]
+    public bool selectable=false;
+
     private void Start()
     {
         Row = (int) (Mathf.Round(transform.position.x));

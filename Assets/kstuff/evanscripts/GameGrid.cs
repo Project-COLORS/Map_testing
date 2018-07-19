@@ -15,6 +15,7 @@ public class GameGrid : MonoBehaviour
     int[] _gridDimensions;
 
     Stack<Transform> _highlightObjects=new Stack<Transform>();
+    Stack<GameTile> _selectedTiles=new Stack<GameTile>();
 
     private void Start()
     {
@@ -126,12 +127,14 @@ public class GameGrid : MonoBehaviour
             _tiles[x,z].transform.position[2]);
     }
 
-    //given a tile place a highlight effect on it
+    //given a tile place a highlight effect on it and mark it as selectable
     public void highlightEffect(GameTile tile)
     {
         // Instantiate(_hoverEffectObject,tile.transform.position,Quaternion.Euler(-90,0,0));
         Vector3 p=tile.transform.position;
         _highlightObjects.Push(Instantiate(_hoverEffectObject,new Vector3(p[0],p[1]+.1f,p[2]),Quaternion.Euler(90,0,0)));
+        _selectedTiles.Push(tile);
+        tile.selectable=true;
     }
 
     //clear all highlight effects
@@ -141,6 +144,7 @@ public class GameGrid : MonoBehaviour
         while (_highlightObjects.Count>0)
         {
             Destroy(_highlightObjects.Pop().gameObject);
+            _selectedTiles.Pop().selectable=false;
         }
     }
 

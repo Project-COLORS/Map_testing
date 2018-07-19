@@ -45,6 +45,10 @@ public class cursorscrip2:MonoBehaviour
     public float m_tileSize=1.12f;
     float m_tileSizehalf;
 
+    /*-- cursor command --*/
+    bool _commandQueued=false;
+    System.Action _currentCommand;
+
     bool _cursorDisabled=false;
 
     /*-- new grid --*/
@@ -75,19 +79,16 @@ public class cursorscrip2:MonoBehaviour
 
         if (Input.GetButtonDown("selectkey"))
         {
-            _grid.clearHighlightEffects();
+            if (_commandQueued)
+            {
+                GameTile clicktile=_grid.getTile(m_pos[0],m_pos[1]);
 
-            Func<GameTile,bool> callback=(tile)=>{
-                _grid.highlightEffect(tile);
-                return true;
-            };
-
-            // _grid.lineQuery(m_pos[0],m_pos[1],1,1,callback);
-            // _grid.lineQuery(m_pos[0],m_pos[1],1,-1,callback);
-            // _grid.lineQuery(m_pos[0],m_pos[1],0,1,callback);
-            // _grid.lineQuery(m_pos[0],m_pos[1],0,-1,callback);
-
-            _grid.rangeQuery(m_pos[0],m_pos[1],2,0,callback);
+                if (clicktile && clicktile.selectable)
+                {
+                    _currentCommand();
+                    _commandQueued=false;
+                }
+            }
         }
 
         if (Input.GetButtonDown("rotateleft"))
@@ -194,5 +195,11 @@ public class cursorscrip2:MonoBehaviour
         }
 
         return z*m_gridDim[0]+x;
+    }
+
+    public void queueCursorCommand(System.Action callback)
+    {
+        _commandQueued=true;
+        _currentCommand=callback;
     }
 }
