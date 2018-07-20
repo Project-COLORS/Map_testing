@@ -27,10 +27,10 @@ public class pchar:MonoBehaviour
     public void setLocation()
     {
         m_gameGrid.setCharacter(m_pos[0],m_pos[1],this);
-        actiontest();
     }
 
-    void actiontest()
+    //testing thing.
+    void baseActionMove()
     {
         m_gameGrid.clearHighlightEffects();
 

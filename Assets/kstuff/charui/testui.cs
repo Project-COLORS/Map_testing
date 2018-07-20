@@ -28,6 +28,11 @@ public class testui:MonoBehaviour
         {
             menuNav(-1);
         }
+
+        else if (Input.GetButtonDown("menukey"))
+        {
+            _cursor.setCharMenuState(false);
+        }
     }
 
     void menuNav(int direction)

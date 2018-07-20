@@ -4561,6 +4561,8 @@ MonoBehaviour:
   m_body: {fileID: 855677948}
   m_gridDim: 0a0000000a000000
   m_tileSize: 0.996
+  _currentChar: {fileID: 1218081351}
+  _charMenu: {fileID: 1672451486}
   _grid: {fileID: 1326517578}
 --- !u!212 &855677950
 SpriteRenderer:
@@ -6593,6 +6595,12 @@ MonoBehaviour:
   Properties:
     InitialColor: 0
   occupyChar: {fileID: 0}
+--- !u!114 &1218081351 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114157772901025908, guid: 58542f842b337b14881c58ec016df8db,
+    type: 2}
+  m_PrefabInternal: {fileID: 1084968651}
+  m_Script: {fileID: 11500000, guid: 1fb12cb815f87a1429f1417f701581ac, type: 3}
 --- !u!1 &1219976587 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: a676d9e7d8514b8468454e888813fef3, type: 3}

@@ -49,7 +49,12 @@ public class cursorscrip2:MonoBehaviour
     bool _commandQueued=false;
     System.Action<GameTile> _currentCommand;
 
+    /*-- menu interaction specific --*/
     bool _cursorDisabled=false;
+    public pchar _currentChar;
+
+    public GameObject _charMenu;
+    bool _charMenucd=false;
 
     /*-- new grid --*/
     public GameGrid _grid;
@@ -69,55 +74,60 @@ public class cursorscrip2:MonoBehaviour
         m_moveVec.x=Input.GetAxisRaw("Vertical");
         m_moveVec.z=Input.GetAxisRaw("Horizontal");
 
-        if (_cursorDisabled)
+        if (!_cursorDisabled)
         {
-            return;
-        }
+            updatePosition();
+            calcPos();
 
-        updatePosition();
-        calcPos();
-
-        if (Input.GetButtonDown("selectkey"))
-        {
-            if (_commandQueued)
+            if (Input.GetButtonDown("selectkey"))
             {
-                GameTile clicktile=_grid.getTile(m_pos[0],m_pos[1]);
-
-                if (clicktile && clicktile.selectable)
+                if (_commandQueued)
                 {
-                    _currentCommand(clicktile);
-                    _commandQueued=false;
+                    GameTile clicktile=_grid.getTile(m_pos[0],m_pos[1]);
+
+                    if (clicktile && clicktile.selectable)
+                    {
+                        _currentCommand(clicktile);
+                        _commandQueued=false;
+                    }
+                }
+            }
+
+            else if (Input.GetButtonDown("menukey"))
+            {
+                setCharMenuState(true);
+            }
+
+            if (Input.GetButtonDown("rotateleft"))
+            {
+                m_targetcamYAngle-=90;
+                if (m_currentcamPosition>=3)
+                {
+                    m_currentcamPosition=0;
+                }
+
+                else
+                {
+                    m_currentcamPosition++;
+                }
+            }
+
+            else if (Input.GetButtonDown("rotateright"))
+            {
+                m_targetcamYAngle+=90;
+                if (m_currentcamPosition<=0)
+                {
+                    m_currentcamPosition=3;
+                }
+
+                else
+                {
+                    m_currentcamPosition--;
                 }
             }
         }
 
-        if (Input.GetButtonDown("rotateleft"))
-        {
-            m_targetcamYAngle-=90;
-            if (m_currentcamPosition>=3)
-            {
-                m_currentcamPosition=0;
-            }
-
-            else
-            {
-                m_currentcamPosition++;
-            }
-        }
-
-        else if (Input.GetButtonDown("rotateright"))
-        {
-            m_targetcamYAngle+=90;
-            if (m_currentcamPosition<=0)
-            {
-                m_currentcamPosition=3;
-            }
-
-            else
-            {
-                m_currentcamPosition--;
-            }
-        }
+        _charMenucd=false;
     }
 
     void updatePosition()
@@ -207,5 +217,17 @@ public class cursorscrip2:MonoBehaviour
     {
         _commandQueued=true;
         _currentCommand=callback;
+    }
+
+    public void setCharMenuState(bool state)
+    {
+        if (_charMenucd)
+        {
+            return;
+        }
+
+        _charMenucd=true;
+        _cursorDisabled=state;
+        _charMenu.SetActive(state);
     }
 }
