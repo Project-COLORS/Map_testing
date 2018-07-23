@@ -76,9 +76,6 @@ public class cursorscrip2:MonoBehaviour
 
         if (!_cursorDisabled)
         {
-            updatePosition();
-            calcPos();
-
             if (Input.GetButtonDown("selectkey"))
             {
                 if (_commandQueued)
@@ -126,6 +123,15 @@ public class cursorscrip2:MonoBehaviour
                 }
             }
         }
+
+        else
+        {
+            m_moveVec.x=0;
+            m_moveVec.z=0;
+        }
+
+        updatePosition();
+        calcPos();
 
         _charMenucd=false;
     }
@@ -219,6 +225,7 @@ public class cursorscrip2:MonoBehaviour
         _currentCommand=callback;
     }
 
+    //set the character menu to active or not
     public void setCharMenuState(bool state)
     {
         if (_charMenucd)
