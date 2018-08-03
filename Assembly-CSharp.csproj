@@ -57,10 +57,10 @@
      <Compile Include="Assets\kstuff\evanscripts\GameTile.cs" />
      <Compile Include="Assets\kstuff\evanscripts\MaterialCache.cs" />
      <Compile Include="Assets\kstuff\evanscripts\TileData.cs" />
-     <Compile Include="Assets\kstuff\old\gs8astuff\basechar.cs" />
-     <Compile Include="Assets\kstuff\old\gs8astuff\cursorscrip1.cs" />
-     <Compile Include="Assets\kstuff\old\gs8astuff\tile.cs" />
-     <Compile Include="Assets\kstuff\old\gs8astuff\tilecontrol.cs" />
+     <Compile Include="Assets\kstuff\old\gs8astuff\basechar-old.cs" />
+     <Compile Include="Assets\kstuff\old\gs8astuff\cursorscrip1-old.cs" />
+     <Compile Include="Assets\kstuff\old\gs8astuff\tilecontrol-old.cs" />
+     <Compile Include="Assets\kstuff\old\gs8astuff\tile-old.cs" />
      <Compile Include="Assets\kstuff\pchar\pchar.cs" />
      <Compile Include="Assets\kstuff\tgrid\tgrid.cs" />
      <Compile Include="Assets\Scripts\Stats\CharacterStat.cs" />
